@@ -32,7 +32,16 @@ import cn.crudapi.core.util.JsonUtils;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring()
-		.antMatchers("/**/css/**", "/**/js/**", "/**/fonts/**", "/**/statics/**");
+		.antMatchers("/**/css/**", 
+				"/**/js/**", 
+				"/**/fonts/**", 
+				"/**/statics/**",
+				"/swagger",
+				"/swagger-ui.html",
+				"/swagger-ui.html/**",
+				"/**/springfox-swagger-ui/**",
+				"/**/swagger-resources/**",
+				"/**/api-docs/**");
 	}
 	
 	@Override
