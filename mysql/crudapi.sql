@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Apr 15, 2021 at 09:39 AM
+-- Generation Time: Jun 18, 2021 at 03:23 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.4.9
 
@@ -18,16 +18,99 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `crudapi`
+-- Database: `crudapiold`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bs_meta_column`
+-- Table structure for table `ca_city`
 --
 
-CREATE TABLE `bs_meta_column` (
+CREATE TABLE `ca_city` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullTextBody` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `createdDate` datetime NOT NULL,
+  `lastModifiedDate` datetime DEFAULT NULL,
+  `code` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provinceId` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ca_city`
+--
+
+INSERT INTO `ca_city` (`id`, `name`, `fullTextBody`, `createdDate`, `lastModifiedDate`, `code`, `provinceId`) VALUES
+(19, '南京', NULL, '2021-02-08 17:02:05', NULL, NULL, 5),
+(20, '淮安', NULL, '2021-02-08 17:02:06', NULL, NULL, 5),
+(21, '徐州', NULL, '2021-02-08 17:02:06', NULL, NULL, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ca_district`
+--
+
+CREATE TABLE `ca_district` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullTextBody` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `createdDate` datetime NOT NULL,
+  `lastModifiedDate` datetime DEFAULT NULL,
+  `code` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cityId` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ca_district`
+--
+
+INSERT INTO `ca_district` (`id`, `name`, `fullTextBody`, `createdDate`, `lastModifiedDate`, `code`, `cityId`) VALUES
+(12, '雨花台', NULL, '2021-02-08 17:02:05', NULL, NULL, 19),
+(13, '江宁', NULL, '2021-02-08 17:02:05', NULL, NULL, 19);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ca_file`
+--
+
+CREATE TABLE `ca_file` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullTextBody` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `createdDate` datetime NOT NULL,
+  `lastModifiedDate` datetime DEFAULT NULL,
+  `size` bigint DEFAULT NULL,
+  `md5` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `folderId` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ca_folder`
+--
+
+CREATE TABLE `ca_folder` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullTextBody` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `createdDate` datetime NOT NULL,
+  `lastModifiedDate` datetime DEFAULT NULL,
+  `parentFolderId` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ca_meta_column`
+--
+
+CREATE TABLE `ca_meta_column` (
   `id` bigint NOT NULL,
   `autoIncrement` bit(1) DEFAULT NULL,
   `caption` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -55,10 +138,10 @@ CREATE TABLE `bs_meta_column` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `bs_meta_column`
+-- Dumping data for table `ca_meta_column`
 --
 
-INSERT INTO `bs_meta_column` (`id`, `autoIncrement`, `caption`, `createdDate`, `dataType`, `defaultValue`, `description`, `displayOrder`, `indexName`, `indexStorage`, `indexType`, `insertable`, `lastModifiedDate`, `length`, `name`, `nullable`, `precision`, `queryable`, `scale`, `seqId`, `unsigned`, `updatable`, `systemable`, `tableId`) VALUES
+INSERT INTO `ca_meta_column` (`id`, `autoIncrement`, `caption`, `createdDate`, `dataType`, `defaultValue`, `description`, `displayOrder`, `indexName`, `indexStorage`, `indexType`, `insertable`, `lastModifiedDate`, `length`, `name`, `nullable`, `precision`, `queryable`, `scale`, `seqId`, `unsigned`, `updatable`, `systemable`, `tableId`) VALUES
 (1, b'1', '编号', '2020-12-23 17:06:29.211000', 'BIGINT', NULL, '编号', 0, NULL, NULL, 'PRIMARY', b'0', '2021-02-08 16:29:53.191000', 20, 'id', b'0', NULL, b'0', NULL, NULL, b'1', b'0', b'1', 1),
 (2, b'0', '名称', '2020-12-23 17:06:29.211000', 'VARCHAR', NULL, '名称', 1, NULL, NULL, NULL, b'1', '2021-02-08 16:29:53.191000', 200, 'name', b'0', NULL, b'1', NULL, NULL, b'0', b'1', b'1', 1),
 (3, b'0', '全文索引', '2020-12-23 17:06:29.211000', 'TEXT', NULL, '全文索引', 2, 'ft_fulltext_body', NULL, 'FULLTEXT', b'0', '2021-02-08 16:29:53.191000', NULL, 'fullTextBody', b'1', NULL, b'0', NULL, NULL, b'0', b'0', b'1', 1),
@@ -147,10 +230,10 @@ INSERT INTO `bs_meta_column` (`id`, `autoIncrement`, `caption`, `createdDate`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bs_meta_index`
+-- Table structure for table `ca_meta_index`
 --
 
-CREATE TABLE `bs_meta_index` (
+CREATE TABLE `ca_meta_index` (
   `id` bigint NOT NULL,
   `caption` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createdDate` datetime(6) DEFAULT NULL,
@@ -165,10 +248,10 @@ CREATE TABLE `bs_meta_index` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bs_meta_index_line`
+-- Table structure for table `ca_meta_index_line`
 --
 
-CREATE TABLE `bs_meta_index_line` (
+CREATE TABLE `ca_meta_index_line` (
   `id` bigint NOT NULL,
   `columnId` bigint DEFAULT NULL,
   `indexId` bigint DEFAULT NULL
@@ -177,10 +260,10 @@ CREATE TABLE `bs_meta_index_line` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bs_meta_sequence`
+-- Table structure for table `ca_meta_sequence`
 --
 
-CREATE TABLE `bs_meta_sequence` (
+CREATE TABLE `ca_meta_sequence` (
   `id` bigint NOT NULL,
   `caption` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createdDate` datetime(6) DEFAULT NULL,
@@ -198,20 +281,20 @@ CREATE TABLE `bs_meta_sequence` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `bs_meta_sequence`
+-- Dumping data for table `ca_meta_sequence`
 --
 
-INSERT INTO `bs_meta_sequence` (`id`, `caption`, `createdDate`, `currentTime`, `cycle`, `description`, `format`, `incrementBy`, `lastModifiedDate`, `maxValue`, `minValue`, `name`, `nextValue`, `sequenceType`) VALUES
+INSERT INTO `ca_meta_sequence` (`id`, `caption`, `createdDate`, `currentTime`, `cycle`, `description`, `format`, `incrementBy`, `lastModifiedDate`, `maxValue`, `minValue`, `name`, `nextValue`, `sequenceType`) VALUES
 (1, '角色编码', '2021-02-01 11:17:34.807000', b'0', NULL, NULL, 'ROLE_%09d', 1, '2021-02-05 17:53:05.432000', 999999999, 1, 'roleCode', 8, 'STRING'),
 (2, '资源编码', '2021-02-02 10:06:15.140000', b'0', NULL, NULL, 'RESOURCE_%09d', 1, '2021-02-02 10:06:15.140000', 999999999, 1, 'resourceCode', 4, 'STRING');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bs_meta_table`
+-- Table structure for table `ca_meta_table`
 --
 
-CREATE TABLE `bs_meta_table` (
+CREATE TABLE `ca_meta_table` (
   `id` bigint NOT NULL,
   `caption` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createPhysicalTable` bit(1) DEFAULT NULL,
@@ -225,10 +308,10 @@ CREATE TABLE `bs_meta_table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `bs_meta_table`
+-- Dumping data for table `ca_meta_table`
 --
 
-INSERT INTO `bs_meta_table` (`id`, `caption`, `createPhysicalTable`, `createdDate`, `description`, `engine`, `lastModifiedDate`, `name`, `pluralName`, `tableName`) VALUES
+INSERT INTO `ca_meta_table` (`id`, `caption`, `createPhysicalTable`, `createdDate`, `description`, `engine`, `lastModifiedDate`, `name`, `pluralName`, `tableName`) VALUES
 (1, '用户', b'1', '2020-12-23 17:06:29.161000', '用户', 'INNODB', '2021-02-08 16:29:53.183000', 'user', 'users', 'spring_user'),
 (2, '角色', b'1', '2021-02-01 10:51:21.324000', '角色', 'INNODB', '2021-02-05 17:45:36.227000', 'role', 'roles', 'spring_role'),
 (3, '资源', b'1', '2021-02-01 10:54:05.668000', '资源', 'INNODB', '2021-02-05 17:52:19.025000', 'resource', 'resources', 'spring_resource'),
@@ -243,10 +326,10 @@ INSERT INTO `bs_meta_table` (`id`, `caption`, `createPhysicalTable`, `createdDat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bs_meta_table_relation`
+-- Table structure for table `ca_meta_table_relation`
 --
 
-CREATE TABLE `bs_meta_table_relation` (
+CREATE TABLE `ca_meta_table_relation` (
   `id` bigint NOT NULL,
   `caption` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createdDate` datetime(6) DEFAULT NULL,
@@ -261,10 +344,10 @@ CREATE TABLE `bs_meta_table_relation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `bs_meta_table_relation`
+-- Dumping data for table `ca_meta_table_relation`
 --
 
-INSERT INTO `bs_meta_table_relation` (`id`, `caption`, `createdDate`, `description`, `lastModifiedDate`, `name`, `relationType`, `fromColumnId`, `fromTableId`, `toColumnId`, `toTableId`) VALUES
+INSERT INTO `ca_meta_table_relation` (`id`, `caption`, `createdDate`, `description`, `lastModifiedDate`, `name`, `relationType`, `fromColumnId`, `fromTableId`, `toColumnId`, `toTableId`) VALUES
 (1, '角色行', '2021-02-01 11:11:44.048000', '角色行', '2021-02-01 11:13:05.487000', 'roleLines', 'OneToMany', 1, 1, 40, 4),
 (2, '角色', '2021-02-01 11:12:22.421000', '角色', '2021-02-01 11:12:22.421000', 'role', 'ManyToOne', 41, 4, 20, 2),
 (3, '资源行', '2021-02-01 11:29:19.889000', '资源行', '2021-02-01 11:30:11.780000', 'resourceLines', 'OneToMany', 20, 2, 47, 5),
@@ -274,89 +357,6 @@ INSERT INTO `bs_meta_table_relation` (`id`, `caption`, `createdDate`, `descripti
 (7, '头像', '2021-02-08 16:29:32.448000', NULL, '2021-02-08 16:29:32.448000', 'avatar', 'ManyToOne', 219, 1, 192, 24),
 (8, '子目录', '2021-02-09 14:23:10.748000', NULL, '2021-02-09 14:23:10.748000', 'childrenFolders', 'OneToMany', 220, 34, 225, 34),
 (13, '文件', '2021-02-09 14:33:59.185000', NULL, '2021-02-09 14:33:59.185000', 'files', 'OneToMany', 220, 34, 226, 24);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ca_city`
---
-
-CREATE TABLE `ca_city` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fullTextBody` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `createdDate` datetime NOT NULL,
-  `lastModifiedDate` datetime DEFAULT NULL,
-  `code` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `provinceId` bigint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `ca_city`
---
-
-INSERT INTO `ca_city` (`id`, `name`, `fullTextBody`, `createdDate`, `lastModifiedDate`, `code`, `provinceId`) VALUES
-(19, '南京', NULL, '2021-02-08 17:02:05', NULL, NULL, 5),
-(20, '淮安', NULL, '2021-02-08 17:02:06', NULL, NULL, 5),
-(21, '徐州', NULL, '2021-02-08 17:02:06', NULL, NULL, 5);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ca_district`
---
-
-CREATE TABLE `ca_district` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fullTextBody` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `createdDate` datetime NOT NULL,
-  `lastModifiedDate` datetime DEFAULT NULL,
-  `code` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cityId` bigint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `ca_district`
---
-
-INSERT INTO `ca_district` (`id`, `name`, `fullTextBody`, `createdDate`, `lastModifiedDate`, `code`, `cityId`) VALUES
-(12, '雨花台', NULL, '2021-02-08 17:02:05', NULL, NULL, 19),
-(13, '江宁', NULL, '2021-02-08 17:02:05', NULL, NULL, 19);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ca_file`
---
-
-CREATE TABLE `ca_file` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fullTextBody` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `createdDate` datetime NOT NULL,
-  `lastModifiedDate` datetime DEFAULT NULL,
-  `size` bigint DEFAULT NULL,
-  `md5` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `folderId` bigint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ca_folder`
---
-
-CREATE TABLE `ca_folder` (
-  `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fullTextBody` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `createdDate` datetime NOT NULL,
-  `lastModifiedDate` datetime DEFAULT NULL,
-  `parentFolderId` bigint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -522,6 +522,13 @@ CREATE TABLE `SPRING_SESSION` (
   `PRINCIPAL_NAME` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Dumping data for table `SPRING_SESSION`
+--
+
+INSERT INTO `SPRING_SESSION` (`PRIMARY_ID`, `SESSION_ID`, `CREATION_TIME`, `LAST_ACCESS_TIME`, `MAX_INACTIVE_INTERVAL`, `EXPIRY_TIME`, `PRINCIPAL_NAME`) VALUES
+('b5e288a4-a2cd-4a2e-b9e2-2a0dd6b98197', 'f9440b10-70ab-44af-81b2-515ce3e4996b', 1623983347370, 1623986533932, 3600, 1623990133932, 'superadmin');
+
 -- --------------------------------------------------------
 
 --
@@ -533,6 +540,13 @@ CREATE TABLE `SPRING_SESSION_ATTRIBUTES` (
   `ATTRIBUTE_NAME` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `ATTRIBUTE_BYTES` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `SPRING_SESSION_ATTRIBUTES`
+--
+
+INSERT INTO `SPRING_SESSION_ATTRIBUTES` (`SESSION_PRIMARY_ID`, `ATTRIBUTE_NAME`, `ATTRIBUTE_BYTES`) VALUES
+('b5e288a4-a2cd-4a2e-b9e2-2a0dd6b98197', 'SPRING_SECURITY_CONTEXT', 0xaced00057372003d6f72672e737072696e676672616d65776f726b2e73656375726974792e636f72652e636f6e746578742e5365637572697479436f6e74657874496d706c00000000000002080200014c000e61757468656e7469636174696f6e7400324c6f72672f737072696e676672616d65776f726b2f73656375726974792f636f72652f41757468656e7469636174696f6e3b78707372004f6f72672e737072696e676672616d65776f726b2e73656375726974792e61757468656e7469636174696f6e2e557365726e616d6550617373776f726441757468656e7469636174696f6e546f6b656e00000000000002080200024c000b63726564656e7469616c737400124c6a6176612f6c616e672f4f626a6563743b4c00097072696e636970616c71007e0004787200476f72672e737072696e676672616d65776f726b2e73656375726974792e61757468656e7469636174696f6e2e416273747261637441757468656e7469636174696f6e546f6b656ed3aa287e6e47640e0200035a000d61757468656e746963617465644c000b617574686f7269746965737400164c6a6176612f7574696c2f436f6c6c656374696f6e3b4c000764657461696c7371007e0004787001737200266a6176612e7574696c2e436f6c6c656374696f6e7324556e6d6f6469666961626c654c697374fc0f2531b5ec8e100200014c00046c6973747400104c6a6176612f7574696c2f4c6973743b7872002c6a6176612e7574696c2e436f6c6c656374696f6e7324556e6d6f6469666961626c65436f6c6c656374696f6e19420080cb5ef71e0200014c00016371007e00067870737200136a6176612e7574696c2e41727261794c6973747881d21d99c7619d03000149000473697a65787000000003770400000003737200426f72672e737072696e676672616d65776f726b2e73656375726974792e636f72652e617574686f726974792e53696d706c654772616e746564417574686f7269747900000000000002080200014c0004726f6c657400124c6a6176612f6c616e672f537472696e673b7870740010524f4c455f53555045525f41444d494e7371007e000e74000a524f4c455f41444d494e7371007e000e740009524f4c455f555345527871007e000d73720038636e2e637275646170692e73656375726974792e636f6d706f6e656e742e436157656241757468656e7469636174696f6e44657461696c7300000000000000010200015a0010696d616765436f646549735269676874787200486f72672e737072696e676672616d65776f726b2e73656375726974792e7765622e61757468656e7469636174696f6e2e57656241757468656e7469636174696f6e44657461696c7300000000000002080200024c000d72656d6f74654164647265737371007e000f4c000973657373696f6e496471007e000f78707400093132372e302e302e3174002461313231666531352d326362352d343530632d393131312d64653264333038343864373201707372001f636e2e637275646170692e73656375726974792e64746f2e5573657244544f00000000000000010200115a00116163636f756e744e6f6e457870697265645a00106163636f756e744e6f6e4c6f636b65645a001563726564656e7469616c734e6f6e457870697265645a0007656e61626c65644c000b617574686f72697469657371007e00094c000c636c6561727465787450776471007e000f4c0005656d61696c71007e000f4c000269647400104c6a6176612f6c616e672f4c6f6e673b4c00066d6f62696c6571007e000f4c00046e616d6571007e000f4c00066f70656e496471007e000f4c000870617373776f726471007e000f4c00087265616c6e616d6571007e000f4c00097265736f757263657371007e00094c0005726f6c657371007e00094c0005746f6b656e71007e000f4c0008757365726e616d6571007e000f7870010101017371007e000c0000000377040000000371007e001071007e001271007e001478707400046e756c6c7372000e6a6176612e6c616e672e4c6f6e673b8be490cc8f23df0200014a000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b0200007870000000000000000171007e001f7071007e001f74003c24326124313024523948576f747170587a6d4c4f553061596c466b7175786373306a7137663172614b48486e736266543531674d3954462e3271377174000fe8b685e7baa7e7aea1e79086e591987371007e000c00000000770400000000787371007e000c000000037704000000037372001f636e2e637275646170692e73656375726974792e64746f2e526f6c6544544f00000000000000010200034c0004636f646571007e000f4c0002696471007e001c4c00046e616d6571007e000f7870740010524f4c455f53555045525f41444d494e7371007e0020000000000000000b74000fe8b685e7baa7e7aea1e79086e591987371007e002774000a524f4c455f41444d494e7371007e0020000000000000000e740009e7aea1e79086e591987371007e0027740009524f4c455f555345527371007e0020000000000000000f74000ce699aee9809ae794a8e688b77871007e001f74000a737570657261646d696e);
 
 -- --------------------------------------------------------
 
@@ -578,57 +592,6 @@ INSERT INTO `spring_user` (`id`, `openId`, `username`, `realname`, `mobile`, `em
 --
 
 --
--- Indexes for table `bs_meta_column`
---
-ALTER TABLE `bs_meta_column`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_bsm_column_name` (`tableId`,`name`),
-  ADD UNIQUE KEY `uq_bsm_column_index_name` (`tableId`,`indexName`),
-  ADD KEY `fk_bsm_column_seq_id` (`seqId`);
-
---
--- Indexes for table `bs_meta_index`
---
-ALTER TABLE `bs_meta_index`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_bsm_index_name` (`tableId`,`name`);
-
---
--- Indexes for table `bs_meta_index_line`
---
-ALTER TABLE `bs_meta_index_line`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_bsm_index_line_column_id` (`columnId`),
-  ADD KEY `fk_bsm_index_line_index_id` (`indexId`);
-
---
--- Indexes for table `bs_meta_sequence`
---
-ALTER TABLE `bs_meta_sequence`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_bsm_sequence_name` (`name`);
-
---
--- Indexes for table `bs_meta_table`
---
-ALTER TABLE `bs_meta_table`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_bsm_table_name` (`name`),
-  ADD UNIQUE KEY `uq_bsm_table_plural_name` (`pluralName`),
-  ADD UNIQUE KEY `uq_bsm_table_table_name` (`tableName`);
-
---
--- Indexes for table `bs_meta_table_relation`
---
-ALTER TABLE `bs_meta_table_relation`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_bsm_table_relation` (`fromTableId`,`toTableId`,`relationType`) USING BTREE,
-  ADD KEY `fk_bsm_table_relation_from_table_id` (`fromTableId`),
-  ADD KEY `fk_bsm_table_relation_to_table_id` (`toTableId`),
-  ADD KEY `fk_bsm_table_relation_from_column_id` (`fromColumnId`),
-  ADD KEY `fk_bsm_table_relation_to_column_id` (`toColumnId`);
-
---
 -- Indexes for table `ca_city`
 --
 ALTER TABLE `ca_city`
@@ -655,6 +618,57 @@ ALTER TABLE `ca_file` ADD FULLTEXT KEY `ft_fulltext_body` (`fullTextBody`);
 ALTER TABLE `ca_folder`
   ADD PRIMARY KEY (`id`);
 ALTER TABLE `ca_folder` ADD FULLTEXT KEY `ft_fulltext_body` (`fullTextBody`);
+
+--
+-- Indexes for table `ca_meta_column`
+--
+ALTER TABLE `ca_meta_column`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_bsm_column_name` (`tableId`,`name`),
+  ADD UNIQUE KEY `uq_bsm_column_index_name` (`tableId`,`indexName`),
+  ADD KEY `fk_bsm_column_seq_id` (`seqId`);
+
+--
+-- Indexes for table `ca_meta_index`
+--
+ALTER TABLE `ca_meta_index`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_bsm_index_name` (`tableId`,`name`);
+
+--
+-- Indexes for table `ca_meta_index_line`
+--
+ALTER TABLE `ca_meta_index_line`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_bsm_index_line_column_id` (`columnId`),
+  ADD KEY `fk_bsm_index_line_index_id` (`indexId`);
+
+--
+-- Indexes for table `ca_meta_sequence`
+--
+ALTER TABLE `ca_meta_sequence`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_bsm_sequence_name` (`name`);
+
+--
+-- Indexes for table `ca_meta_table`
+--
+ALTER TABLE `ca_meta_table`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_bsm_table_name` (`name`),
+  ADD UNIQUE KEY `uq_bsm_table_plural_name` (`pluralName`),
+  ADD UNIQUE KEY `uq_bsm_table_table_name` (`tableName`);
+
+--
+-- Indexes for table `ca_meta_table_relation`
+--
+ALTER TABLE `ca_meta_table_relation`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_bsm_table_relation` (`fromTableId`,`toTableId`,`relationType`) USING BTREE,
+  ADD KEY `fk_bsm_table_relation_from_table_id` (`fromTableId`),
+  ADD KEY `fk_bsm_table_relation_to_table_id` (`toTableId`),
+  ADD KEY `fk_bsm_table_relation_from_column_id` (`fromColumnId`),
+  ADD KEY `fk_bsm_table_relation_to_column_id` (`toColumnId`);
 
 --
 -- Indexes for table `ca_province`
@@ -731,42 +745,6 @@ ALTER TABLE `spring_user` ADD FULLTEXT KEY `ft_fulltext_body` (`fullTextBody`);
 --
 
 --
--- AUTO_INCREMENT for table `bs_meta_column`
---
-ALTER TABLE `bs_meta_column`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
-
---
--- AUTO_INCREMENT for table `bs_meta_index`
---
-ALTER TABLE `bs_meta_index`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `bs_meta_index_line`
---
-ALTER TABLE `bs_meta_index_line`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `bs_meta_sequence`
---
-ALTER TABLE `bs_meta_sequence`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `bs_meta_table`
---
-ALTER TABLE `bs_meta_table`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT for table `bs_meta_table_relation`
---
-ALTER TABLE `bs_meta_table_relation`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
 -- AUTO_INCREMENT for table `ca_city`
 --
 ALTER TABLE `ca_city`
@@ -789,6 +767,42 @@ ALTER TABLE `ca_file`
 --
 ALTER TABLE `ca_folder`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ca_meta_column`
+--
+ALTER TABLE `ca_meta_column`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
+
+--
+-- AUTO_INCREMENT for table `ca_meta_index`
+--
+ALTER TABLE `ca_meta_index`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ca_meta_index_line`
+--
+ALTER TABLE `ca_meta_index_line`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ca_meta_sequence`
+--
+ALTER TABLE `ca_meta_sequence`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ca_meta_table`
+--
+ALTER TABLE `ca_meta_table`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `ca_meta_table_relation`
+--
+ALTER TABLE `ca_meta_table_relation`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `ca_province`
@@ -831,33 +845,33 @@ ALTER TABLE `spring_user`
 --
 
 --
--- Constraints for table `bs_meta_column`
+-- Constraints for table `ca_meta_column`
 --
-ALTER TABLE `bs_meta_column`
-  ADD CONSTRAINT `fk_bsm_column_seq_id` FOREIGN KEY (`seqId`) REFERENCES `bs_meta_sequence` (`id`),
-  ADD CONSTRAINT `fk_bsm_column_table_id` FOREIGN KEY (`tableId`) REFERENCES `bs_meta_table` (`id`);
+ALTER TABLE `ca_meta_column`
+  ADD CONSTRAINT `fk_bsm_column_seq_id` FOREIGN KEY (`seqId`) REFERENCES `ca_meta_sequence` (`id`),
+  ADD CONSTRAINT `fk_bsm_column_table_id` FOREIGN KEY (`tableId`) REFERENCES `ca_meta_table` (`id`);
 
 --
--- Constraints for table `bs_meta_index`
+-- Constraints for table `ca_meta_index`
 --
-ALTER TABLE `bs_meta_index`
-  ADD CONSTRAINT `fk_bsm_index_table_id` FOREIGN KEY (`tableId`) REFERENCES `bs_meta_table` (`id`);
+ALTER TABLE `ca_meta_index`
+  ADD CONSTRAINT `fk_bsm_index_table_id` FOREIGN KEY (`tableId`) REFERENCES `ca_meta_table` (`id`);
 
 --
--- Constraints for table `bs_meta_index_line`
+-- Constraints for table `ca_meta_index_line`
 --
-ALTER TABLE `bs_meta_index_line`
-  ADD CONSTRAINT `fk_bsm_index_line_column_id` FOREIGN KEY (`columnId`) REFERENCES `bs_meta_column` (`id`),
-  ADD CONSTRAINT `fk_bsm_index_line_index_id` FOREIGN KEY (`indexId`) REFERENCES `bs_meta_index` (`id`);
+ALTER TABLE `ca_meta_index_line`
+  ADD CONSTRAINT `fk_bsm_index_line_column_id` FOREIGN KEY (`columnId`) REFERENCES `ca_meta_column` (`id`),
+  ADD CONSTRAINT `fk_bsm_index_line_index_id` FOREIGN KEY (`indexId`) REFERENCES `ca_meta_index` (`id`);
 
 --
--- Constraints for table `bs_meta_table_relation`
+-- Constraints for table `ca_meta_table_relation`
 --
-ALTER TABLE `bs_meta_table_relation`
-  ADD CONSTRAINT `fk_bsm_table_relation_from_column_id` FOREIGN KEY (`fromColumnId`) REFERENCES `bs_meta_column` (`id`),
-  ADD CONSTRAINT `fk_bsm_table_relation_from_table_id` FOREIGN KEY (`fromTableId`) REFERENCES `bs_meta_table` (`id`),
-  ADD CONSTRAINT `fk_bsm_table_relation_to_column_id` FOREIGN KEY (`toColumnId`) REFERENCES `bs_meta_column` (`id`),
-  ADD CONSTRAINT `fk_bsm_table_relation_to_table_id` FOREIGN KEY (`toTableId`) REFERENCES `bs_meta_table` (`id`);
+ALTER TABLE `ca_meta_table_relation`
+  ADD CONSTRAINT `fk_bsm_table_relation_from_column_id` FOREIGN KEY (`fromColumnId`) REFERENCES `ca_meta_column` (`id`),
+  ADD CONSTRAINT `fk_bsm_table_relation_from_table_id` FOREIGN KEY (`fromTableId`) REFERENCES `ca_meta_table` (`id`),
+  ADD CONSTRAINT `fk_bsm_table_relation_to_column_id` FOREIGN KEY (`toColumnId`) REFERENCES `ca_meta_column` (`id`),
+  ADD CONSTRAINT `fk_bsm_table_relation_to_table_id` FOREIGN KEY (`toTableId`) REFERENCES `ca_meta_table` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
