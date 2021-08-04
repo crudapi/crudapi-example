@@ -133,6 +133,7 @@ CREATE TABLE `ca_meta_column` (
   `seqId` bigint DEFAULT NULL,
   `unsigned` bit(1) DEFAULT NULL,
   `updatable` bit(1) DEFAULT NULL,
+  `displayable` bit(1) DEFAULT NULL,
   `systemable` bit(1) DEFAULT NULL,
   `tableId` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

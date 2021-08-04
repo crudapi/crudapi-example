@@ -8,3 +8,4 @@ RENAME TABLE `bs_meta_sequence` TO `ca_meta_sequence`;
 
 
 ALTER TABLE `ca_meta_table` ADD `systemable` BIT(1) NULL DEFAULT NULL;
+ALTER TABLE `ca_meta_column` ADD `displayable` BIT(1) NULL DEFAULT NULL;
