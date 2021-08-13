@@ -93,7 +93,14 @@ admin@crudapi.cn
 #### 微信
 undefinedneqnull
 
-![undefinedneqnull](./img/crudapiweixin.jpeg)
+<div align="left">
+  <img width = "200" src="./img/crudapiweixin.jpeg">
+</div>
+
+#### 微信群
+<div align="left">
+  <img width = "200" src="./img/weixinqun.png">
+</div>
 
 如有任何问题，欢迎咨询和交流！
 
