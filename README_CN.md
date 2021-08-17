@@ -10,8 +10,14 @@
 ### Gitee仓库
 [https://gitee.com/crudapi/crudapi-example](https://gitee.com/crudapi/crudapi-example)
 
+### 下载Jar包
+```bash
+cd lib
+./download.sh
+```
+
 ### 本地安装Jar包
-```build
+```bash
 mvn install:install-file -Dfile=./lib/crudapi-core-1.0.0.jar -DgroupId=cn.crudapi -DartifactId=crudapi-core -Dversion=1.0.0 -Dpackaging=jar
 
 mvn install:install-file -Dfile=./lib/crudapi-api-1.0.0.jar -DgroupId=cn.crudapi -DartifactId=crudapi-api -Dversion=1.0.0 -Dpackaging=jar
@@ -61,7 +67,7 @@ superadmin
 devServer: {
   https: false,
   port: 8080,
-  open: true, // opens browser window automatically
+  open: true,
   proxy: {
     "/api/*": {
       target: "http://127.0.0.1:8888",

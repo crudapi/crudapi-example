@@ -10,8 +10,14 @@
 ### Gitee repo
 [https://gitee.com/crudapi/crudapi-example](https://gitee.com/crudapi/crudapi-example)
 
+### download crudapi jar
+```bash
+cd lib
+./download.sh
+```
+
 ### Install crudapi jar
-```build
+```bash
 mvn install:install-file -Dfile=./lib/crudapi-core-1.0.0.jar -DgroupId=cn.crudapi -DartifactId=crudapi-core -Dversion=1.0.0 -Dpackaging=jar
 
 mvn install:install-file -Dfile=./lib/crudapi-api-1.0.0.jar -DgroupId=cn.crudapi -DartifactId=crudapi-api -Dversion=1.0.0 -Dpackaging=jar
@@ -61,7 +67,7 @@ quasar.conf.js
 devServer: {
   https: false,
   port: 8080,
-  open: true, // opens browser window automatically
+  open: true,
   proxy: {
     "/api/*": {
       target: "http://127.0.0.1:8888",
