@@ -8,3 +8,7 @@ echo "$CRUDAPI_API_JRA_URL"
 curl -O $CRUDAPI_CORE_JRA_URL
 curl -O $CRUDAPI_API_JRA_URL
 ls *.jar
+
+
+mvn install:install-file -Dfile=crudapi-core-$VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-core -Dversion=$VERSION -Dpackaging=jar
+mvn install:install-file -Dfile=crudapi-api-$VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-api -Dversion=$VERSION -Dpackaging=jar

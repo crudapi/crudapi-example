@@ -10,17 +10,10 @@ crudapi-admin-web | Vue Qusar源码 | 开源 | [crudapi-admin-web](https://githu
 crudapi-example| 个人版Java集成SDK | 免费| [crudapi-example](https://github.com/crudapi/crudapi-example) | [crudapi-example](https://gitee.com/crudapi/crudapi-example)
 crudapi-pro-example | 商用版Java集成SDK  | 商用 | [crudapi-pro-example](https://github.com/crudapi/crudapi-pro-example) | [crudapi-pro-example](https://gitee.com/crudapi/crudapi-pro-example)
 
-### 下载Jar包
+### 下载安装Jar包
 ```bash
 cd lib
 ./download.sh
-```
-
-### 本地安装Jar包
-```bash
-mvn install:install-file -Dfile=./lib/crudapi-core-1.0.0.jar -DgroupId=cn.crudapi -DartifactId=crudapi-core -Dversion=1.0.0 -Dpackaging=jar
-
-mvn install:install-file -Dfile=./lib/crudapi-api-1.0.0.jar -DgroupId=cn.crudapi -DartifactId=crudapi-api -Dversion=1.0.0 -Dpackaging=jar
 ```
 
 ### 导入数据库
@@ -41,7 +34,7 @@ mvn clean install -Dmaven.test.skip=true
 
 ### 运行
 ```bash
-java -jar ./target/crudapi-example-1.0.0.jar
+java -jar ./target/crudapi-example-1.1.0.jar
 ```
 
 ### swagger文档
