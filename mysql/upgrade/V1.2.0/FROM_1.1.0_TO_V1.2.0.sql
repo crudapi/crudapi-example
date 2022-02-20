@@ -1,1 +1,0 @@
-ALTER TABLE `ca_meta_table_relation` DROP INDEX `uq_bsm_table_relation`, ADD UNIQUE `uq_ca_table_relation` (`fromTableId`, `toTableId`, `relationType`, `fromColumnId`, `toColumnId`) USING BTREE;

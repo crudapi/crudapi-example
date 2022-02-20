@@ -1,31 +1,3 @@
-DROP TABLE IF EXISTS "ca_meta_table_relation";
-DROP TABLE IF EXISTS "ca_meta_index_line";
-DROP TABLE IF EXISTS "ca_meta_index";
-DROP TABLE IF EXISTS "ca_meta_sequence";
-DROP TABLE IF EXISTS "ca_meta_column";
-DROP TABLE IF EXISTS "ca_meta_table";
-
-DROP TABLE IF EXISTS "ca_userRoleLine";
-DROP TABLE IF EXISTS "ca_roleResourceLine";
-DROP TABLE IF EXISTS "spring_role";
-DROP TABLE IF EXISTS "spring_resource";
-DROP TABLE IF EXISTS "spring_user";
-DROP TABLE IF EXISTS "persistent_logins";
-DROP TABLE IF EXISTS SPRING_SESSION_ATTRIBUTES;
-DROP TABLE IF EXISTS SPRING_SESSION;
-
-DROP TABLE IF EXISTS "ca_weixinConfig";
-DROP TABLE IF EXISTS "ca_smsTemplate";
-DROP TABLE IF EXISTS "ca_smsConfig";
-DROP TABLE IF EXISTS "ca_folder";
-DROP TABLE IF EXISTS "ca_file";
-DROP TABLE IF EXISTS "ca_district";
-DROP TABLE IF EXISTS "ca_city";
-DROP TABLE IF EXISTS "ca_province";
-DROP TABLE IF EXISTS "ca_tableFormBuilder";
-DROP TABLE IF EXISTS "ca_sys_moduleLine";
-DROP TABLE IF EXISTS "ca_sys_module";
-
 CREATE TABLE "ca_meta_sequence" (
   "id" BIGSERIAL NOT NULL PRIMARY KEY,
   "caption" varchar(255) DEFAULT NULL,
