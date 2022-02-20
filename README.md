@@ -16,15 +16,32 @@ cd lib
 ./download.sh
 ```
 
-### Import database
-./mysql/crudapi.sql
+## Mysql
+
+### Import database to crudapi
+./database/mysql/crudapi-mysql.sql
 
 ### Config MySql properties
 src/main/resources/application.properties
 ```bash
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/crudapi?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
 spring.datasource.username=root
 spring.datasource.password=root
+```
+
+## Postgresql
+### Import database to crudapi.public
+
+./database/postgresql/crudapi-pgsql.sql
+
+### Config Postgresql properties
+src/main/resources/application.properties
+```bash
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/crudapi
+spring.datasource.username=postgres
+spring.datasource.password=postgres
 ```
 
 ### Build

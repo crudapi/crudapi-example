@@ -16,15 +16,31 @@ cd lib
 ./download.sh
 ```
 
+## Mysql
+
 ### 导入数据库
-./mysql/crudapi.sql
+./database/mysql/crudapi-mysql.sql
 
 ### 配置数据库信息
 src/main/resources/application.properties
 ```bash
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/crudapi?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
 spring.datasource.username=root
 spring.datasource.password=root
+```
+
+## Postgresql
+### 导入数据库
+./database/postgresql/crudapi-pgsql.sql
+
+### 配置数据库信息
+src/main/resources/application.properties
+```bash
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/crudapi
+spring.datasource.username=postgres
+spring.datasource.password=postgres
 ```
 
 ### 编译
