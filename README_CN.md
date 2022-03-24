@@ -56,13 +56,10 @@ java -jar ./target/crudapi-example-1.4.0.jar
 ### swagger文档
 [http://127.0.0.1:8888/swagger-ui.html](http://127.0.0.1:8888/swagger-ui.html)
 
-### 用户名和密码
-```
-superadmin
-1234567890
-```
-
 ### crudapi后台管理WEB
+[http://127.0.0.1:8888/crudapi/](http://127.0.0.1:8888/crudapi/)
+
+### crudapi后台管理WEB(二次开发)
 #### GitHub仓库
 [https://github.com/crudapi/crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web)
 

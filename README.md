@@ -57,13 +57,15 @@ java -jar ./target/crudapi-example-1.4.0.jar
 ### Swagger
 [http://127.0.0.1:8888/swagger-ui.html](http://127.0.0.1:8888/swagger-ui.html)
 
-### User and password
+### Crudapi Admin Web
+[http://127.0.0.1:8888/crudapi/](http://127.0.0.1:8888/crudapi/)
+User and password
 ```
 superadmin
 1234567890
 ```
 
-### Crudapi Admin Web
+### Crudapi Admin Web (developer)
 #### GitHub repo
 [https://github.com/crudapi/crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web)
 
