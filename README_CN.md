@@ -50,7 +50,7 @@ mvn clean install -Dmaven.test.skip=true
 
 ### 运行
 ```bash
-java -jar ./target/crudapi-example-1.3.0.jar
+java -jar ./target/crudapi-example-1.4.0.jar
 ```
 
 ### swagger文档
