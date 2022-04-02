@@ -363,49 +363,49 @@ ALTER TABLE `ca_tableFormBuilder` ADD FULLTEXT KEY `ft_fulltext_body` (`fullText
 -- 使用表AUTO_INCREMENT `ca_meta_column`
 --
 ALTER TABLE `ca_meta_column`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=498;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- 使用表AUTO_INCREMENT `ca_meta_index`
 --
 ALTER TABLE `ca_meta_index`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- 使用表AUTO_INCREMENT `ca_meta_index_line`
 --
 ALTER TABLE `ca_meta_index_line`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- 使用表AUTO_INCREMENT `ca_meta_sequence`
 --
 ALTER TABLE `ca_meta_sequence`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- 使用表AUTO_INCREMENT `ca_meta_table`
 --
 ALTER TABLE `ca_meta_table`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- 使用表AUTO_INCREMENT `ca_meta_table_relation`
 --
 ALTER TABLE `ca_meta_table_relation`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 
 --
 -- 使用表AUTO_INCREMENT `ca_sys_module`
 --
 ALTER TABLE `ca_sys_module`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '编号', AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '编号', AUTO_INCREMENT=10000;
 
 --
 -- 使用表AUTO_INCREMENT `ca_sys_moduleLine`
 --
 ALTER TABLE `ca_sys_moduleLine`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '编号', AUTO_INCREMENT=12;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '编号', AUTO_INCREMENT=10000;
 
 --
 -- 使用表AUTO_INCREMENT `ca_tableFormBuilder`
