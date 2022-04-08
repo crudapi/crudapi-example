@@ -18,7 +18,7 @@ cd lib
 
 ## Mysql
 
-### 导入数据库
+### 导入数据库到crudapi
 ./database/mysql/crudapi-mysql.sql
 
 ### 配置数据库信息
@@ -31,7 +31,7 @@ spring.datasource.password=root
 ```
 
 ## Postgresql
-### 导入数据库
+### 导入数据库到模式crudapi.public
 ./database/postgresql/crudapi-pgsql.sql
 
 ### 配置数据库信息
@@ -41,6 +41,36 @@ spring.datasource.driverClassName=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://localhost:5432/crudapi
 spring.datasource.username=postgres
 spring.datasource.password=postgres
+```
+
+## Oracle
+### 导入数据库到模式crudapi
+
+./database/oracle/crudapi-oracle.sql
+
+### 配置数据库信息
+src/main/resources/application.properties
+```bash
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XEPDB1
+spring.datasource.driverClassName=oracle.jdbc.OracleDriver
+spring.datasource.username=crudapi
+spring.datasource.password=crudapi
+spring.datasource.initialization-mode=always
+spring.datasource.schema=classpath:schema.sql
+```
+
+## MS SQL Server
+### 导入数据库到模式crudapi.dbo
+
+./database/mssql/crudapi-mssql.sql
+
+### 配置数据库信息
+src/main/resources/application.properties
+```bash
+spring.datasource.url=jdbc:sqlserver://localhost:1433;SelectMethod=cursor;DatabaseName=crudapi
+spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.datasource.username=sa
+spring.datasource.password=Mssql1433
 ```
 
 ### 编译

@@ -31,7 +31,7 @@ spring.datasource.password=root
 ```
 
 ## Postgresql
-### Import database to crudapi.public
+### Import database to schema crudapi.public
 
 ./database/postgresql/crudapi-pgsql.sql
 
@@ -42,6 +42,36 @@ spring.datasource.driverClassName=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://localhost:5432/crudapi
 spring.datasource.username=postgres
 spring.datasource.password=postgres
+```
+
+## Oracle
+### Import database to schema XEPDB1.crudapi
+
+./database/oracle/crudapi-oracle.sql
+
+### Config Postgresql properties
+src/main/resources/application.properties
+```bash
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XEPDB1
+spring.datasource.driverClassName=oracle.jdbc.OracleDriver
+spring.datasource.username=crudapi
+spring.datasource.password=crudapi
+spring.datasource.initialization-mode=always
+spring.datasource.schema=classpath:schema.sql
+```
+
+## MS SQL Server
+### Import database to schema crudapi.dbo
+
+./database/mssql/crudapi-mssql.sql
+
+### Config Postgresql properties
+src/main/resources/application.properties
+```bash
+spring.datasource.url=jdbc:sqlserver://localhost:1433;SelectMethod=cursor;DatabaseName=crudapi
+spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.datasource.username=sa
+spring.datasource.password=Mssql1433
 ```
 
 ### Build
