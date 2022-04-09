@@ -83,7 +83,34 @@
 		    <artifactId>commons-csv</artifactId>
 		    <version>1.8</version>
 		</dependency>
-
+		<dependency>
+        	<groupId>org.springframework.session</groupId>
+        	<artifactId>spring-session-jdbc</artifactId>
+    	</dependency>
+		<dependency>
+		    <groupId>com.squareup.okhttp3</groupId>
+		    <artifactId>okhttp</artifactId>
+		</dependency>
+		<dependency>
+	      <groupId>org.springframework.security</groupId>
+	      <artifactId>spring-security-jwt</artifactId>
+	      <version>1.1.1.RELEASE</version>
+	  	</dependency>
+	  	<dependency>
+	      <groupId>io.jsonwebtoken</groupId>
+	      <artifactId>jjwt</artifactId>
+	      <version>0.9.1</version>
+	  	</dependency>
+	  	<dependency>
+	      <groupId>cn.hutool</groupId>
+	      <artifactId>hutool-all</artifactId>
+	      <version>5.5.6</version>
+	  	</dependency>
+		<dependency>
+		    <groupId>com.github.penggle</groupId>
+		    <artifactId>kaptcha</artifactId>
+		    <version>2.3.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.jadira.usertype</groupId>
 			<artifactId>usertype.core</artifactId>
@@ -132,8 +159,22 @@
 	        <artifactId>crudapi-api</artifactId>
 	        <version>1.4.0</version>
 	    </dependency>
+		<dependency>
+            <groupId>cn.crudapi</groupId>
+            <artifactId>crudapi-security</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+	    <dependency>
+	        <groupId>cn.crudapi</groupId>
+	        <artifactId>crudapi-rest</artifactId>
+	        <version>1.4.0</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>cn.crudapi</groupId>
+	        <artifactId>crudapi-weixin</artifactId>
+	        <version>1.4.0</version>
+	    </dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
