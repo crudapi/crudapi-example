@@ -1,7 +1,7 @@
 rm -rf *.jar
 
 VERSION=1.4.0
-BASE_URL=https://download.crudapi.cn/crudpi
+BASE_URL=https://download.crudapi.cn/crudapi
 CRUDAPI_CORE_JRA_URL=$BASE_URL/$VERSION/crudapi-core-$VERSION.jar
 CRUDAPI_API_JRA_URL=$BASE_URL/$VERSION/crudapi-api-$VERSION.jar
 CRUDAPI_SECURITY_JRA_URL=$BASE_URL/$VERSION/crudapi-security-$VERSION.jar
