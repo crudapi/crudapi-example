@@ -1,5 +1,8 @@
 # Second development demo
 
+### LICENSE
+[LICENSE](./LICENSE)
+
 ## Language
 [中文](README_CN.md)
 

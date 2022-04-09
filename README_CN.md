@@ -1,5 +1,8 @@
 # crudapi二次开发demo
 
+### LICENSE
+[LICENSE](./LICENSE)
+
 ## 语言
 [English](README.md)
 
