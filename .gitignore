@@ -33,4 +33,5 @@ build/
 .vscode/
 
 lib/*jar
+lib/*.gz
 
