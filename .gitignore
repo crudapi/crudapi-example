@@ -35,3 +35,5 @@ build/
 lib/*jar
 lib/*.gz
 
+src/main/resources/static/crudapi
+

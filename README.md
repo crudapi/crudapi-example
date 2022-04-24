@@ -12,13 +12,6 @@ Name | Type | License | GitHub| Gitee
 crudapi-admin-web | Vue Qusar Code | Open Source | [crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web) | [crudapi-admin-web](https://gitee.com/crudapi/crudapi-admin-web)
 crudapi-example| Java SDK | Free Forever | [crudapi-example](https://github.com/crudapi/crudapi-example) | [crudapi-example](https://gitee.com/crudapi/crudapi-example)
 
-
-### download and install crudapi jar
-```bash
-cd lib
-./download.sh
-```
-
 ## Mysql
 
 ### Import database to crudapi
@@ -77,13 +70,22 @@ spring.datasource.username=sa
 spring.datasource.password=Mssql1433
 ```
 
+
+### download and install dependency package
+```bash
+cd lib
+./download.sh
+```
+
 ### Build
 ```bash
+cd crudapi-example
 mvn clean install -Dmaven.test.skip=true
 ```
 
 ### Run
 ```bash
+cd crudapi-example
 java -jar ./target/crudapi-example-1.4.0.jar
 ```
 

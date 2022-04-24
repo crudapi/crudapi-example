@@ -12,12 +12,6 @@
 crudapi-admin-web | Vue Qusar源码 | 开源 | [crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web) | [crudapi-admin-web](https://gitee.com/crudapi/crudapi-admin-web)
 crudapi-example| Java集成SDK | 永久免费 | [crudapi-example](https://github.com/crudapi/crudapi-example) | [crudapi-example](https://gitee.com/crudapi/crudapi-example)
 
-### 下载安装Jar包
-```bash
-cd lib
-./download.sh
-```
-
 ## Mysql
 
 ### 导入数据库到crudapi
@@ -75,13 +69,21 @@ spring.datasource.username=sa
 spring.datasource.password=Mssql1433
 ```
 
+### 下载安装依赖包
+```bash
+cd lib
+./download.sh
+```
+
 ### 编译
 ```bash
+cd crudapi-example
 mvn clean install -Dmaven.test.skip=true
 ```
 
 ### 运行
 ```bash
+cd crudapi-example
 java -jar ./target/crudapi-example-1.4.0.jar
 ```
 

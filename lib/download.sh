@@ -27,12 +27,13 @@ curl -O $CRUDAPI_WEIXIN_JRA_URL
 ls *.gz
 ls *.jar
 
-rm -rf ../src/main/resources/static/crudapi
-tar -zxvf crudapi-admin-web-$CRUDAPI_VERSION.tar.gz -C ../src/main/resources/static
 
 mvn install:install-file -Dfile=crudapi-core-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-core -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
 mvn install:install-file -Dfile=crudapi-api-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-api -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
 mvn install:install-file -Dfile=crudapi-rest-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-rest -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
 mvn install:install-file -Dfile=crudapi-security-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-security -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
 mvn install:install-file -Dfile=crudapi-weixin-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-weixin -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
+
+rm -rf ../src/main/resources/static/crudapi
+tar -zxvf crudapi-admin-web-$CRUDAPI_VERSION.tar.gz -C ../src/main/resources/static
 
