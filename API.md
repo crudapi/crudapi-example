@@ -32,6 +32,9 @@ get token field form response header: Bear XXXXX
 ### set Authorization
 set Authorization field for request header: Bear XXXXX
 
+## option 3: Basic auth
+set Authorization field for: Basic c3VwZXJhZG1pbjoxMjM0NTY3ODkw
+
 # logout
 GET https://demo.crudapi.cn/api/auth/logout
 
