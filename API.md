@@ -5,7 +5,7 @@ https://demo.crudapi.cn/swagger-ui.html
 superadmin/1234567890
 
 # login
-## option 1: cookie
+## option 1: Cookie
 
 ### api
 ```
@@ -16,7 +16,7 @@ username: superadmin
 password: 1234567890
 ```
 
-## option 2: jwt
+## option 2: Jwt token
 ### api
 ```
 POST https://demo.crudapi.cn/api/auth/jwt/login
@@ -26,14 +26,31 @@ username: superadmin
 password: 1234567890
 ```
 
-### get token
-get token field form response header: Bear XXXXX
+![jwtLogin](./img/auth/jwtLogin.png)
 
-### set Authorization
-set Authorization field for request header: Bear XXXXX
+### get jwt token
+get "token" field form response header: Bearer XXXXX
 
-## option 3: Basic auth
-set Authorization field for: Basic c3VwZXJhZG1pbjoxMjM0NTY3ODkw
+### set jwt token
+#### set Bearer Token Type: Bearer XXXXX
+Both "Bearer XXXXX" and "XXXX" is valid
+![jwtAuth](./img/auth/jwtAuth.png)
+
+#### View Authorization
+"Authorization" field of request header: Bearer XXXXX
+![jwtAuthorization](./img/auth/jwtAuthorization.png)
+
+## option 3: Basic Auth
+
+### set Basic auth
+#### set Basic Auth Type: superadmin/1234567890
+![basicAuth](./img/auth/basicAuth.png)
+
+#### View Authorization
+"Authorization" field of request header: Basic c3VwZXJhZG1pbjoxMjM0NTY3ODkw
+![basicAuthorization](./img/auth/basicAuthorization.png)
+
+
 
 # logout
 GET https://demo.crudapi.cn/api/auth/logout
