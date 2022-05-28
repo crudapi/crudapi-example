@@ -79,6 +79,9 @@ cd lib
 ```bash
 cd crudapi-example
 mvn clean install -Dmaven.test.skip=true
+
+#阿里云 mirror
+mvn clean install -Dmaven.test.skip=true -s settings.xml
 ```
 
 ### 运行
