@@ -11,4 +11,9 @@ public class LoggingAspectConfiguration {
 	public LoggingAspect loggingAspect() {
 		return new LoggingAspect();
 	}
+	
+	@Bean
+	public DataSourceAspect dataSourceAspect() {
+		return new DataSourceAspect();
+	}
 }

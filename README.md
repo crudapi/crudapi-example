@@ -89,7 +89,7 @@ mvn clean install -Dmaven.test.skip=true -s settings.xml
 ### Run
 ```bash
 cd crudapi-example
-java -jar ./target/crudapi-example-1.5.0.jar
+java -jar ./target/crudapi-example-1.6.0.jar
 ```
 
 ### Swagger
