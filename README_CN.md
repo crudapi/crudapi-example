@@ -96,6 +96,9 @@ java -jar ./target/crudapi-example-1.6.0.jar
 ### crudapi后台管理WEB
 [http://127.0.0.1:8888/crudapi/](http://127.0.0.1:8888/crudapi/)
 
+### API (二次开发)
+[API](./API.md)
+
 ### crudapi后台管理WEB(二次开发)
 #### GitHub仓库
 [https://github.com/crudapi/crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web)

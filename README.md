@@ -103,6 +103,9 @@ superadmin
 1234567890
 ```
 
+### API (developer)
+[API](./API.md)
+
 ### Crudapi Admin Web (developer)
 #### GitHub repo
 [https://github.com/crudapi/crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web)
