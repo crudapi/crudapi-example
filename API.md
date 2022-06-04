@@ -78,3 +78,20 @@ POST https://demo.crudapi.cn/api/business/user
     }]
 }
 ```
+
+# curl example
+get sequence by id
+```bash
+curl -u 'superadmin:1234567890' -X GET -H 'Content-Type: application/json' 'https://demo.crudapi.cn/api/metadata/sequences/1'
+curl -H 'Authorization:Basic c3VwZXJhZG1pbjoxMjM0NTY3ODkw' -X GET -H 'Content-Type: application/json' 'https://demo.crudapi.cn/api/metadata/sequences/1'
+```
+
+create sequence
+```bash
+curl -u 'superadmin:1234567890' -X POST -H 'Content-Type: application/json' -d '{"currentTime":false,"sequenceType":"STRING","minValue":1,"maxValue":999999999,"nextValue":1,"incrementBy":1,"name":"orderCode","caption":"订单流水号","format":"SO_%9d"}' 'https://demo.crudapi.cn/api/metadata/sequences'
+```
+
+import excel data
+```bash
+curl -u 'superadmin:1234567890' -F "file=@product.xlsx" "https://demo.crudapi.cn/api/business/product/import"
+```
