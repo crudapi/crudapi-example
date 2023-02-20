@@ -23,6 +23,7 @@ spring.datasource.url=jdbc:mysql://localhost:3306/crudapi?serverTimezone=Asia/Sh
 spring.datasource.username=root
 spring.datasource.password=root
 
+#通过flyway自动创建表
 spring.flyway.locations=classpath:cn/crudapi/core/db/migration/mysql
 ```
 
@@ -37,12 +38,12 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/crudapi
 spring.datasource.username=postgres
 spring.datasource.password=postgres
 
-
+#通过flyway自动创建表
 spring.flyway.locations=classpath:cn/crudapi/core/db/migration/postsql
 ```
 
 ## Oracle
-### 新建数据库模式crudapi
+### 新建数据库模式XEPDB1.crudapi
 
 ### 配置数据库信息
 src/main/resources/application.properties
@@ -54,6 +55,7 @@ spring.datasource.password=crudapi
 spring.datasource.initialization-mode=always
 spring.datasource.schema=classpath:schema.sql
 
+#通过flyway自动创建表
 spring.flyway.locations=classpath:cn/crudapi/core/db/migration/oracle
 ```
 
@@ -68,7 +70,7 @@ spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
 spring.datasource.username=sa
 spring.datasource.password=Mssql1433
 
-
+#通过flyway自动创建表
 spring.flyway.locations=classpath:cn/crudapi/core/db/migration/mssql
 ```
 

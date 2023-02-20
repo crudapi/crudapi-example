@@ -24,6 +24,7 @@ spring.datasource.url=jdbc:mysql://localhost:3306/crudapi?serverTimezone=Asia/Sh
 spring.datasource.username=root
 spring.datasource.password=root
 
+#auto create table by flyway
 spring.flyway.locations=classpath:cn/crudapi/core/db/migration/mysql
 ```
 
@@ -38,6 +39,7 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/crudapi
 spring.datasource.username=postgres
 spring.datasource.password=postgres
 
+#auto create table by flyway
 spring.flyway.locations=classpath:cn/crudapi/core/db/migration/postsql
 ```
 
@@ -54,6 +56,7 @@ spring.datasource.password=crudapi
 spring.datasource.initialization-mode=always
 spring.datasource.schema=classpath:schema.sql
 
+#auto create table by flyway
 spring.flyway.locations=classpath:cn/crudapi/core/db/migration/oracle
 ```
 
@@ -68,6 +71,7 @@ spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
 spring.datasource.username=sa
 spring.datasource.password=Mssql1433
 
+#auto create table by flyway
 spring.flyway.locations=classpath:cn/crudapi/core/db/migration/mssql
 ```
 
