@@ -1,1 +1,0 @@
-ALTER TABLE IF EXISTS "ca_meta_column" ADD COLUMN "multipleValue" boolean DEFAULT false;

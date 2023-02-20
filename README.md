@@ -14,8 +14,7 @@ crudapi-example| Java SDK | Free Forever | [crudapi-example](https://github.com/
 
 ## Mysql
 
-### Import database to crudapi
-./database/mysql/crudapi-mysql.sql
+### Create database schema crudapi
 
 ### Config MySql properties
 src/main/resources/application.properties
@@ -24,12 +23,12 @@ spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/crudapi?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
 spring.datasource.username=root
 spring.datasource.password=root
+
+spring.flyway.locations=classpath:cn/crudapi/core/db/migration/mysql
 ```
 
 ## Postgresql
-### Import database to schema crudapi.public
-
-./database/postgresql/crudapi-pgsql.sql
+### Create database schema crudapi.public
 
 ### Config Postgresql properties
 src/main/resources/application.properties
@@ -38,12 +37,12 @@ spring.datasource.driverClassName=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://localhost:5432/crudapi
 spring.datasource.username=postgres
 spring.datasource.password=postgres
+
+spring.flyway.locations=classpath:cn/crudapi/core/db/migration/postsql
 ```
 
 ## Oracle
-### Import database to schema XEPDB1.crudapi
-
-./database/oracle/crudapi-oracle.sql
+### Create database schema XEPDB1.crudapi
 
 ### Config Postgresql properties
 src/main/resources/application.properties
@@ -54,12 +53,12 @@ spring.datasource.username=crudapi
 spring.datasource.password=crudapi
 spring.datasource.initialization-mode=always
 spring.datasource.schema=classpath:schema.sql
+
+spring.flyway.locations=classpath:cn/crudapi/core/db/migration/oracle
 ```
 
 ## MS SQL Server
-### Import database to schema crudapi.dbo
-
-./database/mssql/crudapi-mssql.sql
+### Create database schema crudapi.dbo
 
 ### Config Postgresql properties
 src/main/resources/application.properties
@@ -68,6 +67,8 @@ spring.datasource.url=jdbc:sqlserver://localhost:1433;SelectMethod=cursor;Databa
 spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
 spring.datasource.username=sa
 spring.datasource.password=Mssql1433
+
+spring.flyway.locations=classpath:cn/crudapi/core/db/migration/mssql
 ```
 
 

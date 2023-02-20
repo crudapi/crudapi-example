@@ -13,9 +13,7 @@ crudapi-admin-web | Vue Qusar源码 | 开源 | [crudapi-admin-web](https://githu
 crudapi-example| Java集成SDK | 永久免费 | [crudapi-example](https://github.com/crudapi/crudapi-example) | [crudapi-example](https://gitee.com/crudapi/crudapi-example)
 
 ## Mysql
-
-### 导入数据库到crudapi
-./database/mysql/crudapi-mysql.sql
+### 创建数据库模式crudapi
 
 ### 配置数据库信息
 src/main/resources/application.properties
@@ -24,11 +22,12 @@ spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/crudapi?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
 spring.datasource.username=root
 spring.datasource.password=root
+
+spring.flyway.locations=classpath:cn/crudapi/core/db/migration/mysql
 ```
 
 ## Postgresql
-### 导入数据库到模式crudapi.public
-./database/postgresql/crudapi-pgsql.sql
+### 新建数据库模式crudapi.public
 
 ### 配置数据库信息
 src/main/resources/application.properties
@@ -37,12 +36,13 @@ spring.datasource.driverClassName=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://localhost:5432/crudapi
 spring.datasource.username=postgres
 spring.datasource.password=postgres
+
+
+spring.flyway.locations=classpath:cn/crudapi/core/db/migration/postsql
 ```
 
 ## Oracle
-### 导入数据库到模式crudapi
-
-./database/oracle/crudapi-oracle.sql
+### 新建数据库模式crudapi
 
 ### 配置数据库信息
 src/main/resources/application.properties
@@ -53,12 +53,12 @@ spring.datasource.username=crudapi
 spring.datasource.password=crudapi
 spring.datasource.initialization-mode=always
 spring.datasource.schema=classpath:schema.sql
+
+spring.flyway.locations=classpath:cn/crudapi/core/db/migration/oracle
 ```
 
 ## MS SQL Server
-### 导入数据库到模式crudapi.dbo
-
-./database/mssql/crudapi-mssql.sql
+### 新建数据库模式crudapi.dbo
 
 ### 配置数据库信息
 src/main/resources/application.properties
@@ -67,6 +67,9 @@ spring.datasource.url=jdbc:sqlserver://localhost:1433;SelectMethod=cursor;Databa
 spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
 spring.datasource.username=sa
 spring.datasource.password=Mssql1433
+
+
+spring.flyway.locations=classpath:cn/crudapi/core/db/migration/mssql
 ```
 
 ### 下载安装依赖包
