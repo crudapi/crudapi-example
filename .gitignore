@@ -37,3 +37,4 @@ lib/*.gz
 
 src/main/resources/static/crudapi
 
+*.exe

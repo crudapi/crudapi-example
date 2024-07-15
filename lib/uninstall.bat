@@ -1,0 +1,2 @@
+crudapi uninstall
+pause

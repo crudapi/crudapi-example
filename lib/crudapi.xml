@@ -1,0 +1,10 @@
+<service>
+  <id>crudapi</id>
+  <name>CRUDAPI</name>
+  <description>This service runs crudapi.</description>
+  <env name="CRUDAPI_HOME" value="%BASE%"/>
+  <executable>java</executable>
+  <arguments>-jar "%BASE%\crudapi.jar"</arguments>
+  <log mode="roll"></log>
+  <onfailure action="restart" />
+</service>

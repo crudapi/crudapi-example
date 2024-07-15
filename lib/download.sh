@@ -8,6 +8,7 @@ CRUDAPI_API_JRA_URL=$BASE_URL/maven/crudapi/$CRUDAPI_VERSION/crudapi-api-$CRUDAP
 CRUDAPI_SECURITY_JRA_URL=$BASE_URL/maven/crudapi/$CRUDAPI_VERSION/crudapi-security-$CRUDAPI_VERSION.jar
 CRUDAPI_REST_JRA_URL=$BASE_URL/maven/crudapi/$CRUDAPI_VERSION/crudapi-rest-$CRUDAPI_VERSION.jar
 CRUDAPI_WEIXIN_JRA_URL=$BASE_URL/maven/crudapi/$CRUDAPI_VERSION/crudapi-weixin-$CRUDAPI_VERSION.jar
+CRUDAPI_WINSE_URL=$BASE_URL/exe/WinSW-x64.exe.tar.gz
 
 echo "$CRUDAPI_ADMIN_WEB_GZ_URL"
 echo "$CRUDAPI_CORE_JRA_URL"
@@ -15,18 +16,21 @@ echo "$CRUDAPI_API_JRA_URL"
 echo "$CRUDAPI_SECURITY_JRA_URL"
 echo "$CRUDAPI_REST_JRA_URL"
 echo "$CRUDAPI_WEIXIN_JRA_URL"
+echo "$CRUDAPI_WINSE_URL"
 
 rm -rf *.gz
 rm -rf *.jar
-curl -O $CRUDAPI_ADMIN_WEB_GZ_URL
-curl -O $CRUDAPI_CORE_JRA_URL
-curl -O $CRUDAPI_API_JRA_URL
-curl -O $CRUDAPI_SECURITY_JRA_URL
-curl -O $CRUDAPI_REST_JRA_URL
-curl -O $CRUDAPI_WEIXIN_JRA_URL
+
+curl -k -O $CRUDAPI_ADMIN_WEB_GZ_URL
+curl -k -O $CRUDAPI_CORE_JRA_URL
+curl -k -O $CRUDAPI_API_JRA_URL
+curl -k -O $CRUDAPI_SECURITY_JRA_URL
+curl -k -O $CRUDAPI_REST_JRA_URL
+curl -k -O $CRUDAPI_WEIXIN_JRA_URL
+curl -k -O $CRUDAPI_WINSE_URL
+
 ls *.gz
 ls *.jar
-
 
 mvn install:install-file -Dfile=crudapi-core-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-core -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
 mvn install:install-file -Dfile=crudapi-api-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-api -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
@@ -37,3 +41,4 @@ mvn install:install-file -Dfile=crudapi-weixin-$CRUDAPI_VERSION.jar -DgroupId=cn
 rm -rf ../src/main/resources/static/crudapi
 tar -zxvf crudapi-admin-web-$CRUDAPI_VERSION.tar.gz -C ../src/main/resources/static
 
+tar -zxvf WinSW-x64.exe.tar.gz
