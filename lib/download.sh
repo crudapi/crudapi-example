@@ -38,7 +38,4 @@ mvn install:install-file -Dfile=crudapi-rest-$CRUDAPI_VERSION.jar -DgroupId=cn.c
 mvn install:install-file -Dfile=crudapi-security-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-security -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
 mvn install:install-file -Dfile=crudapi-weixin-$CRUDAPI_VERSION.jar -DgroupId=cn.crudapi -DartifactId=crudapi-weixin -Dversion=$CRUDAPI_VERSION -Dpackaging=jar
 
-rm -rf ../src/main/resources/static/crudapi
-tar -zxvf crudapi-admin-web-$CRUDAPI_VERSION.tar.gz -C ../src/main/resources/static
-
 tar -zxvf WinSW-x64.exe.tar.gz
