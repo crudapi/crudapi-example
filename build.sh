@@ -4,6 +4,11 @@ cd lib
 ./download.sh
 cd ..
 
+
+rm -rf ./src/main/resources/static/mapapi
+cp -R ../crudapi-admin-web/dist/spa/mapapi ./src/main/resources/static
+
+
 mvn clean install
 
 mkdir -p dist/crudapi

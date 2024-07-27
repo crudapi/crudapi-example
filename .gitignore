@@ -36,5 +36,6 @@ lib/*jar
 lib/*.gz
 
 src/main/resources/static/crudapi
+src/main/resources/static/mapapi
 
 *.exe
